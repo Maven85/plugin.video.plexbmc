@@ -1324,6 +1324,7 @@ def selectMedia( data, server ):
                 dvdplayback=True
 
     newurl=mediaType({'key': options[result][0] , 'file' : options[result][1]},server,dvdplayback)
+    newurl=newurl + '&download=1'
 
     printDebug.debug("We have selected media at %s" % newurl)
     return newurl
@@ -2355,7 +2356,7 @@ def getThumb(data, server, width=720, height=720):
         if settings.get_setting('fullres_thumbs'):
             return server.get_kodi_header_formatted_url(thumbnail)
         else:
-            return server.get_kodi_header_formatted_url('/photo/:/transcode?url=%s&width=%s&height=%s' % (urllib.quote_plus('http://localhost:32400' + thumbnail), width, height))
+            return server.get_kodi_header_formatted_url('/photo/:/transcode?url=%s&width=%s&height=%s' % (urllib.quote_plus('http://localhost:32400' + thumbnail), width, height)).replace(" | ", "&")
 
     return GENERIC_THUMBNAIL
 
