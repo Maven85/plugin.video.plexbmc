@@ -413,7 +413,7 @@ class PlexMediaServer:
 
         new_query_args = urllib.urlencode(query_args, True)
 
-        return "%s | %s" % (urlparse.urlunparse((url_parts.scheme, url_parts.netloc, url_parts.path, url_parts.params, new_query_args, url_parts.fragment)), self.plex_identification_string)
+        return "%s&%s" % (urlparse.urlunparse((url_parts.scheme, url_parts.netloc, url_parts.path, url_parts.params, new_query_args, url_parts.fragment)), self.plex_identification_string)
 
     def get_fanart(self, section, width=1280, height=720):
 
