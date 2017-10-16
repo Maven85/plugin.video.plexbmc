@@ -942,6 +942,12 @@ def getAudioSubtitlesMedia( server, tree, full=False ):
 
     if full:
         if media_type == "video":
+            tree_genres = timings.findall('Genre')
+            genre_list = []
+            if tree_genres is not None:
+                for tree_genre in tree_genres:
+                    genre_list.append(tree_genre.get('tag','').encode('utf-8'))
+                    
             full_data={ 'plot'      : timings.get('summary','').encode('utf-8') ,
                         'title'     : timings.get('title','Unknown').encode('utf-8') ,
                         'sorttitle' : timings.get('titleSort', timings.get('title','Unknown')).encode('utf-8') ,
@@ -950,7 +956,8 @@ def getAudioSubtitlesMedia( server, tree, full=False ):
                         'mpaa'      : timings.get('contentRating', '').encode('utf-8'),
                         'year'      : int(timings.get('year',0)) ,
                         'tagline'   : timings.get('tagline','') ,
-                        'thumbnailImage': getThumb(timings,server) }
+                        'thumbnailImage': getThumb(timings,server),
+                        'genre'     : genre_list }
 
             if timings.get('type') == "episode":
                 full_data['episode']     = int(timings.get('index',0)) 
@@ -4211,7 +4218,7 @@ def start_plexbmc():
                 TVSeasons(param_url)
 
             elif mode == MODE_PLAYLIBRARY:
-                playLibraryMedia(param_url,force=force, override=play_transcode)
+                playLibraryMedia(param_url,force=force, full_data=True, override=play_transcode)
 
             elif mode == MODE_PLAYSHELF:
                 playLibraryMedia(param_url,full_data=True, shelf=True)
