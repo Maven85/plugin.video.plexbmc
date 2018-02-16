@@ -467,11 +467,10 @@ class PlexMediaServer:
         else:
             mVB = 2000  # a catch all amount for missing data
 
-        transcode_request = "/video/:/transcode/universal/start.m3u8?"
+        transcode_request = "/video/:/transcode/universal/start.mkv?"
         session = str(uuid.uuid4())
         quality = "100"
-        transcode_settings = { 'protocol' : 'hls' ,
-                             'session' : session ,
+        transcode_settings = { 'session' : session ,
                              'offset' : 0 ,
                              'videoResolution' : resolution,
                              'maxVideoBitrate' : mVB ,
@@ -481,7 +480,7 @@ class PlexMediaServer:
                              'subtitleSize' : settings.get_setting('subSize').split('.')[0] ,
                              'audioBoost' : settings.get_setting('audioSize').split('.')[0] ,
                              'fastSeek' : '1' ,
-                             'path' : "http://127.0.0.1:32400%s" % url }
+                             'path' : url }
 
         fullURL = "%s%s" % (transcode_request, urllib.urlencode(transcode_settings))
         printDebug.debug("Transcoded media location URL: %s" % fullURL)
