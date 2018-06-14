@@ -559,6 +559,9 @@ def buildContextMenu(url, itemData, server):
     section = url_parts.path.split('/')[3]
     ID = itemData.get('ratingKey', '0')
 
+    if(itemData.get('playlistItemID', None)):
+        context.append(('Delete from Playlist', 'RunScript(plugin.video.plexbmc, deletePlaylistItem, %s, %s, %s)' % (server.get_uuid(), itemData.get('playlistItemID'), url_parts.path)))
+
     # Mark media unwatched
     context.append(('Mark as Unwatched', 'RunScript(plugin.video.plexbmc, watch, %s, %s, %s)' % (server.get_uuid(), ID, 'unwatch')))
     context.append(('Mark as Watched', 'RunScript(plugin.video.plexbmc, watch, %s, %s, %s)' % (server.get_uuid(), ID, 'watch')))
@@ -2143,6 +2146,9 @@ def movieTag(url, server, tree, movie, randomNumber):
                'ratingKey'    : str(movie.get('ratingKey', 0)),
                'duration'     : duration,
                'resume'       : int (int(view_offset) / 1000) }
+
+    if(movie.get('playlistItemID', None)):
+        extraData.update({'playlistItemID': movie.get('playlistItemID')})
 
     # Determine what type of watched flag [overlay] to use
     if int(movie.get('viewCount', 0)) > 0:
@@ -4038,6 +4044,21 @@ def switch_user():
     return True
 
 
+def deletePlaylistItem(server_uuid, playlistItem_id, path):
+    printDebug.debug("== ENTER ==")
+    printDebug.info("Deleting playlisttem at: %s" % playlistItem_id)
+
+    return_value = xbmcgui.Dialog().yesno("Confirm playlist item delete?", "Delete this item?")
+
+    if return_value:
+        printDebug.debug("Deleting....")
+        server = plex_network.get_server_from_uuid(server_uuid)
+        server.delete_playlistItem(playlistItem_id, path)
+        xbmc.executebuiltin("Container.Refresh")
+
+    return True
+
+
 # #So this is where we really start the addon
 printDebug = printDebug("PleXBMC")
 
@@ -4244,6 +4265,13 @@ def start_plexbmc():
         # Allow a mastre server to be selected (for myplex queue)
         elif command == "master":
             setMasterServer()
+
+        # Allow a mastre server to be selected (for myplex queue)
+        elif command == "deletePlaylistItem":
+            server_uuid = sys.argv[2]
+            playlistItemID = sys.argv[3]
+            path = sys.argv[4]
+            deletePlaylistItem(server_uuid, playlistItemID, path)
 
         # else move to the main code
         else:
