@@ -561,6 +561,8 @@ def buildContextMenu(url, itemData, server):
 
     if(itemData.get('playlistItemID', None)):
         context.append(('Delete from Playlist', 'RunScript(plugin.video.plexbmc, deletePlaylistItem, %s, %s, %s)' % (server.get_uuid(), itemData.get('playlistItemID'), url_parts.path)))
+    elif itemData.get('librarySectionUUID', None):
+        context.append(('Add to Playlist', 'RunScript(plugin.video.plexbmc, addPlaylistItem, %s, %s, %s)' % (server.get_uuid(), ID, itemData.get('librarySectionUUID'))))
 
     # Mark media unwatched
     context.append(('Mark as Unwatched', 'RunScript(plugin.video.plexbmc, watch, %s, %s, %s)' % (server.get_uuid(), ID, 'unwatch')))
@@ -1866,7 +1868,7 @@ def tracks(url, tree=None):
     xbmcplugin.endOfDirectory(pluginhandle, cacheToDisc=settings.get_setting('kodicache'))
 
 
-def getXML (url, tree=None):
+def getXML(url, tree=None):
     printDebug.debug("== ENTER ==")
 
     if tree is None:
@@ -2173,6 +2175,9 @@ def movieTag(url, server, tree, movie, randomNumber):
 
     # Build any specific context menu entries
     if not settings.get_setting('skipcontextmenus'):
+        if tree.tag == 'MediaContainer':
+            extraData.update({'librarySectionUUID': tree.get('librarySectionUUID', None)})
+
         context = buildContextMenu(url, extraData, server)
     else:
         context = None
@@ -4059,6 +4064,30 @@ def deletePlaylistItem(server_uuid, playlistItem_id, path):
     return True
 
 
+def addPlaylistItem(server_uuid, metadata_id, librarySectionUUID):
+    printDebug.debug("== ENTER ==")
+
+    server = plex_network.get_server_from_uuid(server_uuid)
+    tree = server.get_playlists()
+
+    playlists = []
+    for playlist in tree.getiterator('Playlist'):
+        playlists.append({'title': playlist.get('title'), 'key': playlist.get('key')})
+
+    return_value = xbmcgui.Dialog().select('Select Playlist', [playlist.get('title') for playlist in playlists])
+
+    if return_value == -1:
+        printDebug("Dialog cancelled")
+        return False
+
+    printDebug.info("choosing playlist: %s" % playlists[return_value])
+
+    server.plex_identification_header.update({'uri': 'library://' + librarySectionUUID + '/item/%2Flibrary%2Fmetadata%2F' + metadata_id})
+    server.tell(playlists[return_value].get('key'))
+
+    return True
+
+
 # #So this is where we really start the addon
 printDebug = printDebug("PleXBMC")
 
@@ -4266,12 +4295,19 @@ def start_plexbmc():
         elif command == "master":
             setMasterServer()
 
-        # Allow a mastre server to be selected (for myplex queue)
+        # Delete a item from playlist
         elif command == "deletePlaylistItem":
             server_uuid = sys.argv[2]
             playlistItemID = sys.argv[3]
             path = sys.argv[4]
             deletePlaylistItem(server_uuid, playlistItemID, path)
+
+        # Delete a item to playlist
+        elif command == "addPlaylistItem":
+            server_uuid = sys.argv[2]
+            metadata_id = sys.argv[3]
+            librarySectionUUID = sys.argv[4]
+            addPlaylistItem(server_uuid, metadata_id, librarySectionUUID)
 
         # else move to the main code
         else:

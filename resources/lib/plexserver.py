@@ -248,7 +248,7 @@ class PlexMediaServer:
         return '<?xml version="1.0" encoding="UTF-8"?><message status="offline"></message>'
 
     def tell(self, url, refresh=False):
-        return self.talk (url, refresh, type='put')
+        return self.talk(url, refresh, type='put')
 
     def refresh(self):
         data = self.talk(refresh=True)
@@ -454,6 +454,9 @@ class PlexMediaServer:
 
     def delete_playlistItem(self, playlistItem_id, path):
         return self.talk('%s/%s' % (path, playlistItem_id), type='delete')
+
+    def get_playlists(self):
+        return self.processed_xml('/playlists')
 
     def get_universal_transcode(self, url):
         # Check for myplex user, which we need to alter to a master server
