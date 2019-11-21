@@ -1,0 +1,445 @@
+# Kodi Media Center language file
+# Addon Name: PlexBMC
+# Addon id: plugin.video.plexbmc
+# Addon Provider: Maven85
+
+msgid ""
+msgstr ""
+
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30000"
+msgid "Primary Server Address"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Stream from PMS"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Get extended metadata from PMS"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Enable extra filter menus"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Server Discovery"
+msgstr ""
+
+msgctxt "#30005"
+msgid "PMS Username:"
+msgstr ""
+
+msgctxt "#30006"
+msgid "PMS Password:"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Always Transcode"
+msgstr ""
+
+msgctxt "#30008"
+msgid "Transcode format"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Recent & OnDeck items"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Debug log"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Auto"
+msgstr ""
+
+msgctxt "#30012"
+msgid "http"
+msgstr ""
+
+msgctxt "#30013"
+msgid "smb"
+msgstr ""
+
+msgctxt "#30014"
+msgid "Enable PleXBMC debug output to XBMC log"
+msgstr ""
+
+msgctxt "#30015"
+msgid "Use transcoding proxy"
+msgstr ""
+
+msgctxt "#30016"
+msgid "Server"
+msgstr ""
+
+msgctxt "#30017"
+msgid "Playback"
+msgstr ""
+
+msgctxt "#30018"
+msgid "Transcoding"
+msgstr ""
+
+msgctxt "#30019"
+msgid "Wake On LAN"
+msgstr ""
+
+msgctxt "#30020"
+msgid "Look and Feel"
+msgstr ""
+
+msgctxt "#30021"
+msgid "Skin Home Shelf"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Advanced"
+msgstr ""
+
+msgctxt "#30023"
+msgid "Use Wake On LAN"
+msgstr ""
+
+msgctxt "#30024"
+msgid "myPlex user"
+msgstr ""
+
+msgctxt "#30025"
+msgid "myPlex password"
+msgstr ""
+
+msgctxt "#30026"
+msgid "Select master server..."
+msgstr ""
+
+msgctxt "#30027"
+msgid "Authentication required?"
+msgstr ""
+
+msgctxt "#30028"
+msgid "Load External Subtitles?"
+msgstr ""
+
+msgctxt "#30029"
+msgid "Always display subtitles?"
+msgstr ""
+
+msgctxt "#30030"
+msgid "Port Number"
+msgstr ""
+
+msgctxt "#30031"
+msgid "Use PMS localisation settings<"
+msgstr ""
+
+msgctxt "#30032"
+msgid "Manual"
+msgstr ""
+
+msgctxt "#30033"
+msgid "Always"
+msgstr ""
+
+msgctxt "#30034"
+msgid "Audio stream selection"
+msgstr ""
+
+msgctxt "#30035"
+msgid "Subtitle stream selection"
+msgstr ""
+
+msgctxt "#30036"
+msgid "XBMC Control"
+msgstr ""
+
+msgctxt "#30037"
+msgid "External"
+msgstr ""
+
+msgctxt "#30038"
+msgid "Audio and subtitle selector"
+msgstr ""
+
+msgctxt "#30039"
+msgid "Never show subtitles"
+msgstr ""
+
+msgctxt "#30040"
+msgid "Quality"
+msgstr ""
+
+msgctxt "#30041"
+msgid "Proxy Port"
+msgstr ""
+
+msgctxt "#30042"
+msgid "Plex Channel View"
+msgstr ""
+
+msgctxt "#30043"
+msgid "Flatten TV Shows"
+msgstr ""
+
+msgctxt "#30044"
+msgid "Server MAC address"
+msgstr ""
+
+msgctxt "#30045"
+msgid "Plex Style Watched flags"
+msgstr ""
+
+msgctxt "#30046"
+msgid "Windows Media Server?"
+msgstr ""
+
+msgctxt "#30047"
+msgid "Use WOL?"
+msgstr ""
+
+msgctxt "#30048"
+msgid "Clean context menus"
+msgstr ""
+
+msgctxt "#30049"
+msgid "Skip Genre/director/writer metadata"
+msgstr ""
+
+msgctxt "#30050"
+msgid "Skip images (thumbs, fanart)"
+msgstr ""
+
+msgctxt "#30051"
+msgid "Skip Media Flags"
+msgstr ""
+
+msgctxt "#30052"
+msgid "Skip Context Menus"
+msgstr ""
+
+msgctxt "#30053"
+msgid "Off"
+msgstr ""
+
+msgctxt "#30054"
+msgid "Bonjour"
+msgstr ""
+
+msgctxt "#30055"
+msgid ""
+msgstr ""
+
+msgctxt "#30056"
+msgid "Play TV Theme Music"
+msgstr ""
+
+msgctxt "#30057"
+msgid "Select audio output"
+msgstr ""
+
+msgctxt "#30058"
+msgid "If only one season"
+msgstr ""
+
+msgctxt "#30059"
+msgid "All seasons"
+msgstr ""
+
+msgctxt "#30060"
+msgid "Force DVD playback"
+msgstr ""
+
+msgctxt "#30061"
+msgid "Override SMB location"
+msgstr ""
+
+msgctxt "#30062"
+msgid "NAS IP Address"
+msgstr ""
+
+msgctxt "#30063"
+msgid "AFP"
+msgstr ""
+
+msgctxt "#30064"
+msgid "NAS Username"
+msgstr ""
+
+msgctxt "#30065"
+msgid "NAS password"
+msgstr ""
+
+msgctxt "#30066"
+msgid "NAS Root Folder"
+msgstr ""
+
+msgctxt "#30067"
+msgid "Plex Control"
+msgstr ""
+
+msgctxt "#30068"
+msgid "Subtitle Size"
+msgstr ""
+
+msgctxt "#30069"
+msgid "Audio Boost"
+msgstr ""
+
+msgctxt "#30070"
+msgid "Auto (GDM)"
+msgstr ""
+
+msgctxt "#30071"
+msgid "Current Master Server"
+msgstr ""
+
+msgctxt "#30072"
+msgid "Shelf Items"
+msgstr ""
+
+msgctxt "#30073"
+msgid "Recently Added"
+msgstr ""
+
+msgctxt "#30074"
+msgid "On Deck"
+msgstr ""
+
+msgctxt "#30075"
+msgid "Force Skin Views"
+msgstr ""
+
+msgctxt "#30076"
+msgid "Skin Name"
+msgstr ""
+
+msgctxt "#30077"
+msgid "Movie View"
+msgstr ""
+
+msgctxt "#30078"
+msgid "TV View"
+msgstr ""
+
+msgctxt "#30079"
+msgid "Season View"
+msgstr ""
+
+msgctxt "#30080"
+msgid "Episode View"
+msgstr ""
+
+msgctxt "#30081"
+msgid "Music View"
+msgstr ""
+
+msgctxt "#30082"
+msgid "Enable Movie Shelf"
+msgstr ""
+
+msgctxt "#30083"
+msgid "Enable TV Shelf"
+msgstr ""
+
+msgctxt "#30084"
+msgid "Enable Music Shelf"
+msgstr ""
+
+msgctxt "#30085"
+msgid "Enable Channel Shelf"
+msgstr ""
+
+msgctxt "#30086"
+msgid "Content filter"
+msgstr ""
+
+msgctxt "#30087"
+msgid "Map unknown content as"
+msgstr ""
+
+msgctxt "#30088"
+msgid "RA Library filter"
+msgstr ""
+
+msgctxt "#30089"
+msgid "Kids"
+msgstr ""
+
+msgctxt "#30090"
+msgid "Teens"
+msgstr ""
+
+msgctxt "#30091"
+msgid "Adults"
+msgstr ""
+
+msgctxt "#30092"
+msgid "Use menu for shared sections"
+msgstr ""
+
+msgctxt "#30093"
+msgid "Cache Data"
+msgstr ""
+
+msgctxt "#30094"
+msgid "Manual"
+msgstr ""
+
+msgctxt "#30095"
+msgid "Use full-res thumbs"
+msgstr ""
+
+msgctxt "#30096"
+msgid "Use full-res fanart"
+msgstr ""
+
+msgctxt "#30097"
+msgid "Hide watched recently added items"
+msgstr ""
+
+msgctxt "#30098"
+msgid "Info"
+msgstr ""
+
+msgctxt "#30099"
+msgid "Debug"
+msgstr ""
+
+msgctxt "#30100"
+msgid "Debug+"
+msgstr ""
+
+msgctxt "#30101"
+msgid "Transcoder"
+msgstr ""
+
+msgctxt "#30102"
+msgid "Name"
+msgstr ""
+
+msgctxt "#30103"
+msgid "Disable "All Episodes""
+msgstr ""
+
+msgctxt "#30104"
+msgid "Enable KODI view cache"
+msgstr ""
+
+msgctxt "#30105"
+msgid "Manage myPlex"
+msgstr ""
+
+msgctxt "#30106"
+msgid "Prefer Season artwork"
+msgstr ""
+
+msgctxt "#30107"
+msgid "Switch off playback monitor"
+msgstr ""
